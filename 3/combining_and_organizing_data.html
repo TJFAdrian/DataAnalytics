@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>combining_and_organizing_data</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>combining_and_organizing_data</title><script type="text/javascript" src="http://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=TczDELbMxSk61d1iaSgeXSjvBIVJWrmNNnuLW40irPQeGvja4iOCUO4GdAMu_KnpOImiGxdQ7zDp0qKzKGMsG5mTxgUjcY4rNEmu53XT-43kfyKApUs65Q2gXQuTLtb4qWSqH6RYGCCYrRKHSiv3b4WORlfStN7efQczVgaIluE" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="http://ff.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cDovL2xvY2FsaG9zdDo4ODg4L25iY29udmVydC9odG1sL0RBL0V4L0RhdGFBbmFseXRpY3MvMy9jb21iaW5pbmdfYW5kX29yZ2FuaXppbmdfZGF0YS5pcHluYj9kb3dubG9hZD10cnVl"/><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14539,6 +14539,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   display: none;
 }
 
+@page {
+    margin: 0.5in; /* Margin for each printed piece of paper */
+}
+
 @media print {
   .jp-Cell-inputWrapper,
   .jp-Cell-outputWrapper {
@@ -14613,7 +14617,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Libraries</span>
@@ -14624,7 +14628,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 <span class="c1"># Ignore warnings</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14648,25 +14652,25 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get current working directory</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
 
 <span class="c1"># Read data to pandas data frame</span>
-<span class="n">df_orig</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'apartments_data_prepared.csv'</span><span class="p">,</span> 
-                      <span class="n">sep</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> 
-                      <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span>
+<span class="n">df_orig</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;apartments_data_prepared.csv&#39;</span><span class="p">,</span> 
+                      <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> 
+                      <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 
 <span class="c1"># Copy of data with selected colums</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df_orig</span><span class="p">[[</span><span class="s1">'web-scraper-order'</span><span class="p">,</span> 
-              <span class="s1">'address_raw'</span><span class="p">,</span> 
-              <span class="s1">'datetime'</span><span class="p">,</span> <span class="s1">'rooms'</span><span class="p">,</span> 
-              <span class="s1">'area'</span><span class="p">,</span> 
-              <span class="s1">'luxurious'</span><span class="p">,</span>
-              <span class="s1">'price'</span><span class="p">,</span>
-              <span class="s1">'price_per_m2'</span><span class="p">]]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_orig</span><span class="p">[[</span><span class="s1">&#39;web-scraper-order&#39;</span><span class="p">,</span> 
+              <span class="s1">&#39;address_raw&#39;</span><span class="p">,</span> 
+              <span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="s1">&#39;rooms&#39;</span><span class="p">,</span> 
+              <span class="s1">&#39;area&#39;</span><span class="p">,</span> 
+              <span class="s1">&#39;luxurious&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;price&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;price_per_m2&#39;</span><span class="p">]]</span>
 
 <span class="c1"># Get number of rows and columns</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -14692,14 +14696,14 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>U:\Lektionen\DA_HS2022\KK\Week_03
+<pre>C:\Users\adria\DA\Ex\DataAnalytics\3
 (916, 8)
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
 
 
 
@@ -14737,7 +14741,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>0</th>
       <td>1662023695-433</td>
       <td>Sunnenbergstrasse 15, 8633 Wolfhausen, ZH</td>
-      <td>2022-09-29 08:19:51</td>
+      <td>2022-12-14 19:07:02</td>
       <td>3.5</td>
       <td>122</td>
       <td>1</td>
@@ -14748,7 +14752,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>1</th>
       <td>1662023745-820</td>
       <td>Lavaterstr. 63, 8002 Zürich, ZH</td>
-      <td>2022-09-29 08:19:51</td>
+      <td>2022-12-14 19:07:02</td>
       <td>2.5</td>
       <td>78</td>
       <td>0</td>
@@ -14759,7 +14763,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>2</th>
       <td>1662023742-807</td>
       <td>Langfurrenstrasse 5c, 8623 Wetzikon ZH, ZH</td>
-      <td>2022-09-29 08:19:51</td>
+      <td>2022-12-14 19:07:02</td>
       <td>5.5</td>
       <td>115</td>
       <td>0</td>
@@ -14770,7 +14774,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>3</th>
       <td>1662023804-1290</td>
       <td>Sandbuckweg 5A, 8157 Dielsdorf, ZH</td>
-      <td>2022-09-29 08:19:51</td>
+      <td>2022-12-14 19:07:02</td>
       <td>3.5</td>
       <td>74</td>
       <td>0</td>
@@ -14781,7 +14785,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>4</th>
       <td>1662023739-771</td>
       <td>Parkring 59, 8002 Zürich, ZH</td>
-      <td>2022-09-29 08:19:51</td>
+      <td>2022-12-14 19:07:02</td>
       <td>5.5</td>
       <td>195</td>
       <td>1</td>
@@ -14806,7 +14810,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Combining-data">Combining data<a class="anchor-link" href="#Combining-data">&#182;</a></h2>
+<h2 id="Combining-data-from-different-sources">Combining data from different sources<a class="anchor-link" href="#Combining-data-from-different-sources">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -14826,7 +14830,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Meaning of variables</span>
@@ -14836,9 +14840,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="c1"># bfs_name: official municipality name</span>
 
 <span class="c1"># Geocoded data (i.e. data with latitude and longitude)</span>
-<span class="n">df_geo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'apartments_data_geocoded.csv'</span><span class="p">,</span> 
-                     <span class="n">sep</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> 
-                     <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span>
+<span class="n">df_geo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;apartments_data_geocoded.csv&#39;</span><span class="p">,</span> 
+                     <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> 
+                     <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 <span class="n">df_geo</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
@@ -14855,7 +14859,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
 
 
 
@@ -14959,15 +14963,15 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_geo</span><span class="p">[[</span><span class="s1">'web-scraper-order'</span><span class="p">,</span> 
-                       <span class="s1">'lat'</span><span class="p">,</span> 
-                       <span class="s1">'lon'</span><span class="p">,</span> 
-                       <span class="s1">'bfs_number'</span><span class="p">,</span> 
-                       <span class="s1">'bfs_name'</span><span class="p">]],</span> 
-               <span class="n">on</span><span class="o">=</span><span class="s2">"web-scraper-order"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_geo</span><span class="p">[[</span><span class="s1">&#39;web-scraper-order&#39;</span><span class="p">,</span> 
+                       <span class="s1">&#39;lat&#39;</span><span class="p">,</span> 
+                       <span class="s1">&#39;lon&#39;</span><span class="p">,</span> 
+                       <span class="s1">&#39;bfs_number&#39;</span><span class="p">,</span> 
+                       <span class="s1">&#39;bfs_name&#39;</span><span class="p">]],</span> 
+               <span class="n">on</span><span class="o">=</span><span class="s2">&quot;web-scraper-order&quot;</span><span class="p">)</span>
 <span class="n">df2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -14984,7 +14988,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
 
 
 
@@ -15026,7 +15030,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>0</th>
       <td>1662023695-433</td>
       <td>Sunnenbergstrasse 15, 8633 Wolfhausen, ZH</td>
-      <td>2022-09-29 08:19:51</td>
+      <td>2022-12-14 19:07:02</td>
       <td>3.5</td>
       <td>122</td>
       <td>1</td>
@@ -15041,7 +15045,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>1</th>
       <td>1662023745-820</td>
       <td>Lavaterstr. 63, 8002 Zürich, ZH</td>
-      <td>2022-09-29 08:19:51</td>
+      <td>2022-12-14 19:07:02</td>
       <td>2.5</td>
       <td>78</td>
       <td>0</td>
@@ -15056,7 +15060,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>2</th>
       <td>1662023742-807</td>
       <td>Langfurrenstrasse 5c, 8623 Wetzikon ZH, ZH</td>
-      <td>2022-09-29 08:19:51</td>
+      <td>2022-12-14 19:07:02</td>
       <td>5.5</td>
       <td>115</td>
       <td>0</td>
@@ -15071,7 +15075,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>3</th>
       <td>1662023804-1290</td>
       <td>Sandbuckweg 5A, 8157 Dielsdorf, ZH</td>
-      <td>2022-09-29 08:19:51</td>
+      <td>2022-12-14 19:07:02</td>
       <td>3.5</td>
       <td>74</td>
       <td>0</td>
@@ -15086,7 +15090,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>4</th>
       <td>1662023739-771</td>
       <td>Parkring 59, 8002 Zürich, ZH</td>
-      <td>2022-09-29 08:19:51</td>
+      <td>2022-12-14 19:07:02</td>
       <td>5.5</td>
       <td>195</td>
       <td>1</td>
@@ -15124,7 +15128,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Meaning of variables:</span>
@@ -15135,8 +15139,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="c1"># frg_pct: percentage foreigners</span>
 <span class="c1"># emp: numer of employees</span>
 
-<span class="n">df_municip</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">'municipality_data.xlsx'</span><span class="p">,</span> 
-                           <span class="n">sheet_name</span><span class="o">=</span><span class="s1">'data_for_import'</span><span class="p">)</span>
+<span class="n">df_municip</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;municipality_data.xlsx&#39;</span><span class="p">,</span> 
+                           <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;data_for_import&#39;</span><span class="p">)</span>
 <span class="n">df_municip</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
@@ -15153,7 +15157,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
 
 
 
@@ -15257,15 +15261,16 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df3</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_municip</span><span class="p">[[</span><span class="s1">'bfs_number'</span><span class="p">,</span> 
-                            <span class="s1">'pop'</span><span class="p">,</span> 
-                            <span class="s1">'pop_dens'</span><span class="p">,</span> 
-                            <span class="s1">'frg_pct'</span><span class="p">,</span> 
-                            <span class="s1">'emp'</span><span class="p">]],</span> 
-                <span class="n">on</span><span class="o">=</span><span class="s2">"bfs_number"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Merge needs a key which must be identical in both data sets (here the key is &#39;bfs_number&#39;)</span>
+<span class="n">df3</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_municip</span><span class="p">[[</span><span class="s1">&#39;bfs_number&#39;</span><span class="p">,</span> 
+                            <span class="s1">&#39;pop&#39;</span><span class="p">,</span> 
+                            <span class="s1">&#39;pop_dens&#39;</span><span class="p">,</span> 
+                            <span class="s1">&#39;frg_pct&#39;</span><span class="p">,</span> 
+                            <span class="s1">&#39;emp&#39;</span><span class="p">]],</span> 
+                <span class="n">on</span><span class="o">=</span><span class="s2">&quot;bfs_number&quot;</span><span class="p">)</span>
 <span class="n">df3</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
@@ -15282,7 +15287,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[32]:</div>
 
 
 
@@ -15328,7 +15333,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>0</th>
       <td>1662023695-433</td>
       <td>Sunnenbergstrasse 15, 8633 Wolfhausen, ZH</td>
-      <td>2022-09-29 08:19:51</td>
+      <td>2022-12-14 19:07:02</td>
       <td>3.5</td>
       <td>122</td>
       <td>1</td>
@@ -15347,7 +15352,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>1</th>
       <td>1662023720-634</td>
       <td>Blumenbergstrasse 7, 8633 Wolfhausen, ZH</td>
-      <td>2022-09-29 08:19:51</td>
+      <td>2022-12-14 19:07:02</td>
       <td>4.0</td>
       <td>87</td>
       <td>0</td>
@@ -15366,7 +15371,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>2</th>
       <td>1662023745-834</td>
       <td>8608 Bubikon, ZH</td>
-      <td>2022-09-29 08:19:51</td>
+      <td>2022-12-14 19:07:02</td>
       <td>3.5</td>
       <td>92</td>
       <td>0</td>
@@ -15385,7 +15390,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>3</th>
       <td>1662023701-503</td>
       <td>8608 Bubikon, ZH</td>
-      <td>2022-09-29 08:19:51</td>
+      <td>2022-12-14 19:07:02</td>
       <td>3.5</td>
       <td>130</td>
       <td>0</td>
@@ -15404,7 +15409,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>4</th>
       <td>1662023745-820</td>
       <td>Lavaterstr. 63, 8002 Zürich, ZH</td>
-      <td>2022-09-29 08:19:51</td>
+      <td>2022-12-14 19:07:02</td>
       <td>2.5</td>
       <td>78</td>
       <td>0</td>
@@ -15437,37 +15442,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Export-data-to-file">Export data to file<a class="anchor-link" href="#Export-data-to-file">&#182;</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Export apartment data to file</span>
-<span class="n">df3</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">'apartments_data_enriched.csv'</span><span class="p">,</span>
-            <span class="n">sep</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span>
-            <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Sorting-data">Sorting data<a class="anchor-link" href="#Sorting-data">&#182;</a></h3>
+<h3 id="Reading-municipality-data">Reading municipality data<a class="anchor-link" href="#Reading-municipality-data">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -15476,12 +15451,20 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Sorting data by 'price' and 'area' with highest price above (ascending=False)</span>
-<span class="n">df3</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'price'</span><span class="p">,</span> <span class="s1">'area'</span><span class="p">],</span> 
-                <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Meaning of variables:</span>
+<span class="c1"># bfs_number: official municipality id</span>
+<span class="c1"># bfs_name: official municipality name</span>
+<span class="c1"># pop: number of residents (=population)</span>
+<span class="c1"># pop_dens: population density (pop per km2)</span>
+<span class="c1"># frg_pct: percentage foreigners</span>
+<span class="c1"># emp: numer of employees</span>
+
+<span class="n">df_income</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Book1.xlsx&#39;</span><span class="p">,</span> 
+                           <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;Sheet1&#39;</span><span class="p">)</span>
+<span class="n">df_income</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15497,7 +15480,116 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bfs_number</th>
+      <th>bfs_name</th>
+      <th>mean_taxable_income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Aeugst am Albis</td>
+      <td>105013.570634</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Affoltern am Albis</td>
+      <td>71059.805603</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Bonstetten</td>
+      <td>88927.698145</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Hausen am Albis</td>
+      <td>86300.455137</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Hedingen</td>
+      <td>90811.205330</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Join-municipality-data-to-rental-apartment-data-using-.merge()">Join municipality data to rental apartment data using .merge()<a class="anchor-link" href="#Join-municipality-data-to-rental-apartment-data-using-.merge()">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Merge needs a key which must be identical in both data sets (here the key is &#39;bfs_number&#39;)</span>
+<span class="n">df4</span> <span class="o">=</span> <span class="n">df3</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_income</span><span class="p">[[</span><span class="s1">&#39;mean_taxable_income&#39;</span><span class="p">,</span>
+                          <span class="s1">&#39;bfs_number&#39;</span><span class="p">]],</span> 
+                <span class="n">on</span><span class="o">=</span><span class="s2">&quot;bfs_number&quot;</span><span class="p">)</span>
+<span class="n">df4</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
 
 
 
@@ -15536,6 +15628,228 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>pop_dens</th>
       <th>frg_pct</th>
       <th>emp</th>
+      <th>mean_taxable_income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1662023695-433</td>
+      <td>Sunnenbergstrasse 15, 8633 Wolfhausen, ZH</td>
+      <td>2022-12-14 19:07:02</td>
+      <td>3.5</td>
+      <td>122</td>
+      <td>1</td>
+      <td>3180</td>
+      <td>26.07</td>
+      <td>47.255714</td>
+      <td>8.804976</td>
+      <td>112</td>
+      <td>Bubikon</td>
+      <td>7344</td>
+      <td>632.558140</td>
+      <td>11.410675</td>
+      <td>3617.0</td>
+      <td>79385.904340</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1662023720-634</td>
+      <td>Blumenbergstrasse 7, 8633 Wolfhausen, ZH</td>
+      <td>2022-12-14 19:07:02</td>
+      <td>4.0</td>
+      <td>87</td>
+      <td>0</td>
+      <td>1690</td>
+      <td>19.43</td>
+      <td>47.254879</td>
+      <td>8.793746</td>
+      <td>112</td>
+      <td>Bubikon</td>
+      <td>7344</td>
+      <td>632.558140</td>
+      <td>11.410675</td>
+      <td>3617.0</td>
+      <td>79385.904340</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1662023745-834</td>
+      <td>8608 Bubikon, ZH</td>
+      <td>2022-12-14 19:07:02</td>
+      <td>3.5</td>
+      <td>92</td>
+      <td>0</td>
+      <td>2350</td>
+      <td>25.54</td>
+      <td>47.277386</td>
+      <td>8.800306</td>
+      <td>112</td>
+      <td>Bubikon</td>
+      <td>7344</td>
+      <td>632.558140</td>
+      <td>11.410675</td>
+      <td>3617.0</td>
+      <td>79385.904340</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1662023701-503</td>
+      <td>8608 Bubikon, ZH</td>
+      <td>2022-12-14 19:07:02</td>
+      <td>3.5</td>
+      <td>130</td>
+      <td>0</td>
+      <td>2500</td>
+      <td>19.23</td>
+      <td>47.277386</td>
+      <td>8.800306</td>
+      <td>112</td>
+      <td>Bubikon</td>
+      <td>7344</td>
+      <td>632.558140</td>
+      <td>11.410675</td>
+      <td>3617.0</td>
+      <td>79385.904340</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1662023745-820</td>
+      <td>Lavaterstr. 63, 8002 Zürich, ZH</td>
+      <td>2022-12-14 19:07:02</td>
+      <td>2.5</td>
+      <td>78</td>
+      <td>0</td>
+      <td>3760</td>
+      <td>48.21</td>
+      <td>47.361378</td>
+      <td>8.533339</td>
+      <td>261</td>
+      <td>Zürich</td>
+      <td>420217</td>
+      <td>4778.994655</td>
+      <td>32.458468</td>
+      <td>491193.0</td>
+      <td>82932.737704</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Export-data-to-file">Export data to file<a class="anchor-link" href="#Export-data-to-file">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Export apartment data to file</span>
+<span class="n">df4</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;apartments_data_enriched.csv&#39;</span><span class="p">,</span>
+            <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span>
+            <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Sorting-data">Sorting data<a class="anchor-link" href="#Sorting-data">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Sorting data by &#39;price&#39; and &#39;area&#39; with highest price above (ascending=False)</span>
+<span class="n">df4</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">],</span> 
+                <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[36]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>web-scraper-order</th>
+      <th>address_raw</th>
+      <th>datetime</th>
+      <th>rooms</th>
+      <th>area</th>
+      <th>luxurious</th>
+      <th>price</th>
+      <th>price_per_m2</th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>bfs_number</th>
+      <th>bfs_name</th>
+      <th>pop</th>
+      <th>pop_dens</th>
+      <th>frg_pct</th>
+      <th>emp</th>
+      <th>mean_taxable_income</th>
     </tr>
   </thead>
   <tbody>
@@ -15543,7 +15857,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>76</th>
       <td>1662023771-1030</td>
       <td>Parkring 57, 8002 Zürich, ZH</td>
-      <td>2022-09-29 08:19:51</td>
+      <td>2022-12-14 19:07:02</td>
       <td>5.0</td>
       <td>187</td>
       <td>1</td>
@@ -15557,12 +15871,13 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>4778.994655</td>
       <td>32.458468</td>
       <td>491193.0</td>
+      <td>82932.737704</td>
     </tr>
     <tr>
       <th>174</th>
       <td>1662023689-385</td>
       <td>8053 Zürich, ZH</td>
-      <td>2022-09-29 08:19:51</td>
+      <td>2022-12-14 19:07:02</td>
       <td>4.5</td>
       <td>171</td>
       <td>1</td>
@@ -15576,12 +15891,13 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>4778.994655</td>
       <td>32.458468</td>
       <td>491193.0</td>
+      <td>82932.737704</td>
     </tr>
     <tr>
       <th>36</th>
       <td>1662023733-742</td>
       <td>Giessereistrasse 12, 8005 Zürich, ZH</td>
-      <td>2022-09-29 08:19:51</td>
+      <td>2022-12-14 19:07:02</td>
       <td>2.5</td>
       <td>282</td>
       <td>0</td>
@@ -15595,12 +15911,13 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>4778.994655</td>
       <td>32.458468</td>
       <td>491193.0</td>
+      <td>82932.737704</td>
     </tr>
     <tr>
       <th>5</th>
       <td>1662023739-771</td>
       <td>Parkring 59, 8002 Zürich, ZH</td>
-      <td>2022-09-29 08:19:51</td>
+      <td>2022-12-14 19:07:02</td>
       <td>5.5</td>
       <td>195</td>
       <td>1</td>
@@ -15614,12 +15931,13 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>4778.994655</td>
       <td>32.458468</td>
       <td>491193.0</td>
+      <td>82932.737704</td>
     </tr>
     <tr>
       <th>18</th>
       <td>1662023786-1149</td>
       <td>Freudenbergstrasse 94, 8044 Zürich, ZH</td>
-      <td>2022-09-29 08:19:51</td>
+      <td>2022-12-14 19:07:02</td>
       <td>4.5</td>
       <td>128</td>
       <td>0</td>
@@ -15633,6 +15951,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>4778.994655</td>
       <td>32.458468</td>
       <td>491193.0</td>
+      <td>82932.737704</td>
     </tr>
   </tbody>
 </table>
@@ -15661,11 +15980,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Aggregation using .groupby()</span>
-<span class="n">df3</span><span class="p">[[</span><span class="s1">'rooms'</span><span class="p">,</span> <span class="s1">'price'</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'rooms'</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">df4</span><span class="p">[[</span><span class="s1">&#39;rooms&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;rooms&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -15681,7 +16000,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[37]:</div>
 
 
 
@@ -15714,43 +16033,43 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   <tbody>
     <tr>
       <th>1.0</th>
-      <td>1515.888889</td>
+      <td>1536.744186</td>
     </tr>
     <tr>
       <th>1.5</th>
-      <td>1946.311111</td>
+      <td>1966.488372</td>
     </tr>
     <tr>
       <th>2.0</th>
-      <td>1562.805556</td>
+      <td>1552.314286</td>
     </tr>
     <tr>
       <th>2.5</th>
-      <td>2273.563758</td>
+      <td>2290.631206</td>
     </tr>
     <tr>
       <th>3.0</th>
-      <td>1825.421875</td>
+      <td>1817.083333</td>
     </tr>
     <tr>
       <th>3.5</th>
-      <td>2339.687023</td>
+      <td>2336.547718</td>
     </tr>
     <tr>
       <th>4.0</th>
-      <td>2261.100000</td>
+      <td>2271.750000</td>
     </tr>
     <tr>
       <th>4.5</th>
-      <td>2650.764368</td>
+      <td>2633.937888</td>
     </tr>
     <tr>
       <th>5.0</th>
-      <td>3257.230769</td>
+      <td>3368.666667</td>
     </tr>
     <tr>
       <th>5.5</th>
-      <td>3013.310345</td>
+      <td>3008.307692</td>
     </tr>
     <tr>
       <th>6.0</th>
@@ -15802,19 +16121,19 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_sub</span> <span class="o">=</span> <span class="n">df3</span><span class="p">[[</span><span class="s1">'bfs_name'</span><span class="p">,</span> <span class="s1">'rooms'</span><span class="p">,</span> <span class="s1">'price'</span><span class="p">,</span> <span class="s1">'area'</span><span class="p">]][:</span><span class="mi">5</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Original shape'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_sub</span><span class="p">,</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_sub</span> <span class="o">=</span> <span class="n">df4</span><span class="p">[[</span><span class="s1">&#39;bfs_name&#39;</span><span class="p">,</span> <span class="s1">&#39;rooms&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">]][:</span><span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Original shape&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_sub</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="n">df_sub_stacked</span> <span class="o">=</span> <span class="n">df_sub</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Stacked'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_sub_stacked</span><span class="p">,</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Stacked&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_sub_stacked</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="c1"># Using unstack</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Unstacked (= back to original shape)'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Unstacked (= back to original shape)&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df_sub_stacked</span><span class="o">.</span><span class="n">unstack</span><span class="p">())</span>
 </pre></div>
 
@@ -15897,15 +16216,15 @@ Unstacked (= back to original shape)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_sub</span> <span class="o">=</span> <span class="n">df3</span><span class="p">[[</span><span class="s1">'rooms'</span><span class="p">,</span> <span class="s1">'price'</span><span class="p">,</span> <span class="s1">'area'</span><span class="p">]][:</span><span class="mi">5</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Original shape'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_sub</span><span class="p">,</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_sub</span> <span class="o">=</span> <span class="n">df4</span><span class="p">[[</span><span class="s1">&#39;rooms&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">]][:</span><span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Original shape&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_sub</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Reshaped using .melt()'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">'rooms'</span><span class="p">],</span> <span class="n">value_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">'price'</span><span class="p">,</span> <span class="s1">'area'</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Reshaped using .melt()&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rooms&#39;</span><span class="p">],</span> <span class="n">value_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">]))</span>
 </pre></div>
 
      </div>
@@ -15972,13 +16291,13 @@ Reshaped using .melt()
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Using pivot_table to reshape the data and calculate means </span>
-<span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df3</span><span class="p">[[</span><span class="s1">'rooms'</span><span class="p">,</span> <span class="s1">'price'</span><span class="p">,</span> <span class="s1">'area'</span><span class="p">]],</span>
-               <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">'rooms'</span><span class="p">],</span>
-               <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">'price'</span><span class="p">,</span> <span class="s1">'area'</span><span class="p">],</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df4</span><span class="p">[[</span><span class="s1">&#39;rooms&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;price_per_m2&#39;</span><span class="p">]],</span>
+               <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rooms&#39;</span><span class="p">],</span>
+               <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;price_per_m2&#39;</span><span class="p">],</span>
                <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
 </pre></div>
 
@@ -15995,7 +16314,7 @@ Reshaped using .melt()
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
 
 
 
@@ -16020,9 +16339,11 @@ Reshaped using .melt()
       <th></th>
       <th>area</th>
       <th>price</th>
+      <th>price_per_m2</th>
     </tr>
     <tr>
       <th>rooms</th>
+      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -16030,68 +16351,81 @@ Reshaped using .melt()
   <tbody>
     <tr>
       <th>1.0</th>
-      <td>42.600000</td>
-      <td>1515.888889</td>
+      <td>43.348837</td>
+      <td>1536.744186</td>
+      <td>44.257209</td>
     </tr>
     <tr>
       <th>1.5</th>
-      <td>61.200000</td>
-      <td>1946.311111</td>
+      <td>62.232558</td>
+      <td>1966.488372</td>
+      <td>44.431860</td>
     </tr>
     <tr>
       <th>2.0</th>
-      <td>55.194444</td>
-      <td>1562.805556</td>
+      <td>55.342857</td>
+      <td>1552.314286</td>
+      <td>28.953714</td>
     </tr>
     <tr>
       <th>2.5</th>
-      <td>68.704698</td>
-      <td>2273.563758</td>
+      <td>69.028369</td>
+      <td>2290.631206</td>
+      <td>34.096028</td>
     </tr>
     <tr>
       <th>3.0</th>
-      <td>68.781250</td>
-      <td>1825.421875</td>
+      <td>69.400000</td>
+      <td>1817.083333</td>
+      <td>26.706833</td>
     </tr>
     <tr>
       <th>3.5</th>
-      <td>87.240458</td>
-      <td>2339.687023</td>
+      <td>87.510373</td>
+      <td>2336.547718</td>
+      <td>26.930788</td>
     </tr>
     <tr>
       <th>4.0</th>
-      <td>87.360000</td>
-      <td>2261.100000</td>
+      <td>87.791667</td>
+      <td>2271.750000</td>
+      <td>26.039583</td>
     </tr>
     <tr>
       <th>4.5</th>
-      <td>110.764368</td>
-      <td>2650.764368</td>
+      <td>110.670807</td>
+      <td>2633.937888</td>
+      <td>24.029441</td>
     </tr>
     <tr>
       <th>5.0</th>
-      <td>124.769231</td>
-      <td>3257.230769</td>
+      <td>124.333333</td>
+      <td>3368.666667</td>
+      <td>25.667500</td>
     </tr>
     <tr>
       <th>5.5</th>
-      <td>140.068966</td>
-      <td>3013.310345</td>
+      <td>140.923077</td>
+      <td>3008.307692</td>
+      <td>21.576538</td>
     </tr>
     <tr>
       <th>6.0</th>
       <td>153.000000</td>
       <td>4240.000000</td>
+      <td>27.710000</td>
     </tr>
     <tr>
       <th>6.5</th>
       <td>194.000000</td>
       <td>4760.000000</td>
+      <td>24.540000</td>
     </tr>
     <tr>
       <th>9.0</th>
       <td>300.000000</td>
       <td>4000.000000</td>
+      <td>13.330000</td>
     </tr>
   </tbody>
 </table>
@@ -16102,6 +16436,345 @@ Reshaped using .melt()
 
 </div>
 
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Generally speaking, the price per m2 decreases with more rooms, but it is not really consistent. The extreme values on both ends reflect this, but in between it is not consistent.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Pivoting-data-using-.pivot_table()">Pivoting data using .pivot_table()<a class="anchor-link" href="#Pivoting-data-using-.pivot_table()">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Using pivot_table to reshape the data and calculate means </span>
+<span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df4</span><span class="p">[[</span><span class="s1">&#39;rooms&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;price_per_m2&#39;</span><span class="p">]],</span>
+               <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rooms&#39;</span><span class="p">],</span>
+               <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span>
+               <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[44]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>price</th>
+    </tr>
+    <tr>
+      <th>rooms</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1.0</th>
+      <td>43</td>
+    </tr>
+    <tr>
+      <th>1.5</th>
+      <td>43</td>
+    </tr>
+    <tr>
+      <th>2.0</th>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>2.5</th>
+      <td>141</td>
+    </tr>
+    <tr>
+      <th>3.0</th>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>3.5</th>
+      <td>241</td>
+    </tr>
+    <tr>
+      <th>4.0</th>
+      <td>48</td>
+    </tr>
+    <tr>
+      <th>4.5</th>
+      <td>161</td>
+    </tr>
+    <tr>
+      <th>5.0</th>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>5.5</th>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>6.0</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>6.5</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>9.0</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Generally speaking, extreme values are more rare than the most common room count (2.5 - 4.5 rooms)</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Pivoting-data-using-.pivot_table()">Pivoting data using .pivot_table()<a class="anchor-link" href="#Pivoting-data-using-.pivot_table()">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[51]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Using pivot_table to reshape the data and calculate means </span>
+<span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df4</span><span class="p">[[</span><span class="s1">&#39;rooms&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;price_per_m2&#39;</span><span class="p">,</span> <span class="s1">&#39;bfs_name&#39;</span><span class="p">]],</span>
+               <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;bfs_name&#39;</span><span class="p">],</span>
+               <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;price_per_m2&#39;</span><span class="p">,</span> <span class="s1">&#39;rooms&#39;</span><span class="p">],</span>
+               <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span>
+               <span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;price_per_m2&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[51]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>area</th>
+      <th>price</th>
+      <th>price_per_m2</th>
+      <th>rooms</th>
+    </tr>
+    <tr>
+      <th>bfs_name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Herrliberg</th>
+      <td>56.000000</td>
+      <td>1777.500000</td>
+      <td>44.740000</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>Zürich</th>
+      <td>78.209524</td>
+      <td>2958.338095</td>
+      <td>41.839000</td>
+      <td>2.916667</td>
+    </tr>
+    <tr>
+      <th>Küsnacht (ZH)</th>
+      <td>124.000000</td>
+      <td>4685.000000</td>
+      <td>40.483333</td>
+      <td>3.333333</td>
+    </tr>
+    <tr>
+      <th>Oberglatt</th>
+      <td>75.800000</td>
+      <td>2036.000000</td>
+      <td>37.138000</td>
+      <td>3.100000</td>
+    </tr>
+    <tr>
+      <th>Unterengstringen</th>
+      <td>87.600000</td>
+      <td>2587.000000</td>
+      <td>34.794000</td>
+      <td>2.900000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>Seegräben</th>
+      <td>54.000000</td>
+      <td>895.000000</td>
+      <td>16.570000</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>Weiach</th>
+      <td>114.000000</td>
+      <td>1725.000000</td>
+      <td>15.805000</td>
+      <td>3.500000</td>
+    </tr>
+    <tr>
+      <th>Hittnau</th>
+      <td>160.000000</td>
+      <td>2499.000000</td>
+      <td>15.620000</td>
+      <td>4.500000</td>
+    </tr>
+    <tr>
+      <th>Boppelsen</th>
+      <td>130.000000</td>
+      <td>1940.000000</td>
+      <td>14.920000</td>
+      <td>3.000000</td>
+    </tr>
+    <tr>
+      <th>Kappel am Albis</th>
+      <td>300.000000</td>
+      <td>4000.000000</td>
+      <td>13.330000</td>
+      <td>9.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>114 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
 </div>
 
 </div>
